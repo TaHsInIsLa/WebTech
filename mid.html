@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP to JavaScript Conversion</title>
+</head>
+<body>
+    <script>
+        // Variable declarations
+        let valuel = 0.0;
+        let value2 = "0";
+        let value3 = false;  // Note: Fixed from $value to $value3 to match the PHP code
+        let value4 = "Hello";
+
+        // Condition 1
+        if (isEmpty(valuel) && typeof value2 === 'string' && isAlpha(value2)) {
+            document.write("Condition 1 is true <br>");
+        } else {
+            document.write("Condition 1 is false <br>");
+        }
+
+        // Condition 2
+        if (typeof value3 !== 'undefined' && isEmpty(valuel) && isNumeric(value2)) {
+            document.write("Condition 2 is true <br>");
+        } else {
+            document.write("Condition 2 is false <br>");
+        }
+
+        // Condition 3
+        if (typeof value4 !== 'undefined' && !isEmpty(value4) && typeof value3 === 'string') {
+            document.write("Condition 3 is true <br>");
+        } else {
+            document.write("Condition 3 is false <br>");
+        }
+
+        // Helper functions
+        function isEmpty(val) {
+            return val === "" || val === 0 || val === "0" || val === null || val === false || typeof val === 'undefined';
+        }
+
+        function isAlpha(str) {
+            return /^[a-zA-Z]+$/.test(str);
+        }
+
+        function isNumeric(n) {
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+    </script>
+</body>
+</html>
