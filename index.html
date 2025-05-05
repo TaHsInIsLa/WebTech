@@ -3,11 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
   <title>Aiub </title>
-=======
-  <title>AIUB</title>
->>>>>>> d21d2c1192e007b9a370e08eb388fb265a0c667e
   <style>
     .form-container {
       flex: 2;
@@ -19,21 +15,16 @@
       font-size: 0.9em;
       margin-top: 2px;
     }
+    
   </style>
 </head>
 <body style="margin: 0; padding: 0; box-sizing: border-box; height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px;">
 
   <img src="American_International_University-Bangladesh_Monogram.svg.png" alt="AIUB" style="width: 80px; height: 80px; background: lightgray; border-radius: 50%;">
 
-<<<<<<< HEAD
   <h3 style="text-align: center; font-weight: bold;">AQI for Mankind</h3>
 
   <div style="display: flex; width: 800px; height: 500px; gap: 1px;">
-=======
-  <h3 style="text-align: center; font-weight: bold;">Fill The Form</h3>
-
-  <div style="display: flex; width: 800px; height: 500px;">
->>>>>>> d21d2c1192e007b9a370e08eb388fb265a0c667e
     <div style="width: 50%; display: flex; flex-direction: column;">
       <div class="form-container" id="formBackground">
         <form id="myForm" novalidate>
@@ -100,101 +91,57 @@
             <div id="terms-err" class="err-msg"></div>
           </p>
         </form>
+        <div class="controls">
+          <label><input type="radio" name="bgcolor" value="white" checked> White</label>
+          <label><input type="radio" name="bgcolor" value="lightblue"> Light Blue</label>
+          <label><input type="radio" name="bgcolor" value="lightgreen"> Light Green</label>
+          <label><input type="radio" name="bgcolor" value="lightcoral"> Light Coral</label>
+        </div>
+      
 
         <button onclick="changeColor()" style="margin-top: 10px;">Change Background Color</button>
         <div>
           <button>
-            <a id="submitLink" href="button.html" type="button">Submit &gt;</a>
+            <a id="submitLink" href="button.html" type="button">Submit</a>
           </button>
         </div>
+        
       </div>
+      
     </div>
-    <div style="width: 50%; background: dodgerblue;"></div>
-  </div>
-
-  <script>
-    function changeColor() {
-      const colors = ["blue", "green", "crimson", "darkorange", "teal", "purple"];
-      const container = document.getElementById("formBackground");
-      let newColor;
-      do {
-        newColor = colors[Math.floor(Math.random() * colors.length)];
-      } while (newColor === container.style.backgroundColor);
-      container.style.backgroundColor = newColor;
-    }
-    document.getElementById('submitLink').addEventListener('click', function(e) {
-      const errs = ['name','email','password','cp','dob','country','gender','comment','terms'];
-      errs.forEach(id => document.getElementById(id + '-err').textContent = '');
-
-      let valid = true;
-      const name = document.getElementById('name').value.trim();
-      if (!name) {
-        document.getElementById('name-err').textContent = 'Name is required.';
-        valid = false;
-      } else if (/\d/.test(name)) {
-        document.getElementById('name-err').textContent = 'Name cannot contain numbers.';
-        valid = false;
-      }
-      const email = document.getElementById('email').value;
-      if (!email) {
-        document.getElementById('email-err').textContent = 'Email is required.';
-        valid = false;
-      } else if (!/@/.test(email) || !/\./.test(email)) {
-        document.getElementById('email-err').textContent = 'Email must contain "@" and "."';
-        valid = false;
-      }
-      const pwd = document.getElementById('password').value;
-      const pwdRules = [];
-      if (pwd.length < 8) pwdRules.push('min 8 chars');
-      if (!/[A-Z]/.test(pwd)) pwdRules.push('1 uppercase');
-      if (!/[0-9]/.test(pwd)) pwdRules.push('1 number');
-      if (!/[!@#$%^&*(),.?":{}|<>]/.test(pwd)) pwdRules.push('1 special char');
-      if (pwdRules.length) {
-        document.getElementById('password-err').textContent = 'Password needs: ' + pwdRules.join(', ');
-        valid = false;
-      }
-      const cp = document.getElementById('Cp').value;
-      if (!cp) {
-        document.getElementById('cp-err').textContent = 'Confirm your password.';
-        valid = false;
-      } else if (cp !== pwd) {
-        document.getElementById('cp-err').textContent = "Passwords don't match.";
-        valid = false;
-      }
-      if (!document.getElementById('DoB').value) {
-        document.getElementById('dob-err').textContent = 'Date of Birth is required.';
-        valid = false;
-      }
-      if (!document.getElementById('country').value) {
-        document.getElementById('country-err').textContent = 'Please select a country.';
-        valid = false;
-      }
-      if (!document.getElementById('Gender').value) {
-        document.getElementById('gender-err').textContent = 'Please select gender.';
-        valid = false;
-      }
-      if (!document.getElementById('comment').value.trim()) {
-        document.getElementById('comment-err').textContent = 'Comment is required.';
-        valid = false;
-      }
-      if (!document.getElementById('terms').checked) {
-        document.getElementById('terms-err').textContent = 'You must agree to terms.';
-        valid = false;
-      }
-
-      if (!valid) e.preventDefault();
-    });
-  </script>
-
     <div style="width: 50%; display: flex; flex-direction: column; gap: 1px;">
-      <div style="flex: 1; background: dodgerblue;"></div>
-      <div style="flex: 1; background: red;  display: flex; align-items: center; justify-content: center;">
+      <div style="flex: 1; background: dodgerblue;">
+        <div class="login-box">
+          <h2>Login</h2>
+          <form action="/login" method="post">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com"/>
+            <br>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" required placeholder="••••••••"/>
+            <br>
+            
+          </form>
+        </div>
+      </div>
+
+   
+      <div style="flex: 1; background: red;  display: flex; align-items: left; justify-content: left;">
         
       </div>
     </div>
   </div>
 
   <script>
+    const radios = document.querySelectorAll('input[name="bgcolor"]');
+
+radios.forEach(radio => {
+  radio.addEventListener('change', function() {
+    if (this.checked) {
+      document.body.style.backgroundColor = this.value;
+    }
+  });
+});
     function changeColor() {
       const colors = ["blue", "green", "crimson", "darkorange", "teal", "purple"];
       const container = document.getElementById("formBackground");
